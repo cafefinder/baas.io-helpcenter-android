@@ -16,7 +16,7 @@
         android:layout_marginRight="5dp"
         android:includeFontPadding="false"
         android:textStyle="bold"
-        android:textColor="@color/abs__holo_blue_light"
+        android:textColor="@android:color/holo_blue_light"
         android:textSize="15sp" />
 
     <TextView

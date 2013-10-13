@@ -16,14 +16,15 @@
 
 package com.kth.baasio.helpcenter.utils.actionmodecompat;
 
-import com.kth.baasio.helpcenter.utils.EtcUtils;
-
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+
+import com.kth.baasio.helpcenter.utils.EtcUtils;
 
 /**
  * A compatibility shim for {@link android.view.ActionMode} that shows context
@@ -32,7 +33,7 @@ import android.widget.ListView;
 public abstract class ActionMode {
     private Object mTag;
 
-    public static ActionMode start(FragmentActivity activity, Callback callback) {
+    public static ActionMode start(ActionBarActivity activity, Callback callback) {
         if (EtcUtils.hasHoneycomb()) {
             return ActionModeHoneycomb.startInternal(activity, callback);
         } else {
@@ -40,7 +41,7 @@ public abstract class ActionMode {
         }
     }
 
-    public static void setMultiChoiceMode(ListView listView, FragmentActivity activity,
+    public static void setMultiChoiceMode(ListView listView, ActionBarActivity activity,
             MultiChoiceModeListener listener) {
         if (EtcUtils.hasHoneycomb()) {
             ActionModeHoneycomb.beginMultiChoiceMode(listView, activity, listener);

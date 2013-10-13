@@ -1,7 +1,14 @@
 
 package com.kth.baasio.helpcenter.ui;
 
-import com.actionbarsherlock.app.SherlockFragment;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.kth.baasio.callback.BaasioCallback;
 import com.kth.baasio.exception.BaasioException;
 import com.kth.baasio.help.BaasioHelp;
@@ -10,14 +17,7 @@ import com.kth.baasio.helpcenter.R;
 import com.kth.baasio.utils.JsonUtils;
 import com.kth.baasio.utils.ObjectUtils;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-
-public class FaqDetailFragment extends SherlockFragment {
+public class FaqDetailFragment extends Fragment {
 
     public static final String FAQ_DETAIL = "faq_detail";
 

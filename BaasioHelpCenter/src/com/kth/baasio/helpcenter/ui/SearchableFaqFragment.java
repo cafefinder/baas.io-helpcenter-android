@@ -4,22 +4,15 @@ package com.kth.baasio.helpcenter.ui;
 import static com.kth.common.utils.LogUtils.LOGV;
 import static com.kth.common.utils.LogUtils.makeLogTag;
 
-import com.actionbarsherlock.app.SherlockFragment;
-import com.kth.baasio.callback.BaasioCallback;
-import com.kth.baasio.exception.BaasioException;
-import com.kth.baasio.help.BaasioHelp;
-import com.kth.baasio.help.data.Faq;
-import com.kth.baasio.help.data.FaqCategory;
-import com.kth.baasio.helpcenter.R;
-import com.kth.baasio.helpcenter.utils.EtcUtils;
-import com.kth.baasio.helpcenter.utils.actionmodecompat.ActionMode;
-import com.kth.baasio.helpcenter.utils.actionmodecompat.ActionMode.Callback;
-import com.kth.baasio.utils.ObjectUtils;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,10 +24,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.kth.baasio.callback.BaasioCallback;
+import com.kth.baasio.exception.BaasioException;
+import com.kth.baasio.help.BaasioHelp;
+import com.kth.baasio.help.data.Faq;
+import com.kth.baasio.help.data.FaqCategory;
+import com.kth.baasio.helpcenter.R;
+import com.kth.baasio.helpcenter.utils.EtcUtils;
+import com.kth.baasio.helpcenter.utils.actionmodecompat.ActionMode;
+import com.kth.baasio.helpcenter.utils.actionmodecompat.ActionMode.Callback;
+import com.kth.baasio.utils.ObjectUtils;
 
-public class SearchableFaqFragment extends SherlockFragment implements Callback {
+public class SearchableFaqFragment extends Fragment implements Callback {
 
     private static final String TAG = makeLogTag(SearchableFaqFragment.class);
 
@@ -98,7 +99,7 @@ public class SearchableFaqFragment extends SherlockFragment implements Callback 
         });
         String query = getActivity().getIntent().getStringExtra(SearchManager.QUERY);
 
-        getSherlockActivity().getSupportActionBar().setTitle(
+       ((ActionBarActivity)getActivity()).getSupportActionBar().setTitle(
                 getResources().getString(R.string.title_search_faqs, query));
 
         getEntities(query);

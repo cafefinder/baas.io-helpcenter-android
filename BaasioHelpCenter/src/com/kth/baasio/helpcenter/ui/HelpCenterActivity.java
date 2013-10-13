@@ -1,16 +1,6 @@
 
 package com.kth.baasio.helpcenter.ui;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.Tab;
-import com.actionbarsherlock.app.ActionBar.TabListener;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-import com.kth.baasio.help.data.Question;
-import com.kth.baasio.helpcenter.BaseActivity;
-import com.kth.baasio.helpcenter.R;
-import com.kth.baasio.helpcenter.ui.SendQuestionFragment.OnQuestionSentListener;
-
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,6 +9,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.Tab;
+import android.support.v7.app.ActionBar.TabListener;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.kth.baasio.help.data.Question;
+import com.kth.baasio.helpcenter.BaseActivity;
+import com.kth.baasio.helpcenter.R;
+import com.kth.baasio.helpcenter.ui.SendQuestionFragment.OnQuestionSentListener;
 
 public class HelpCenterActivity extends BaseActivity implements OnPageChangeListener, TabListener,
         OnQuestionSentListener {
@@ -65,7 +65,7 @@ public class HelpCenterActivity extends BaseActivity implements OnPageChangeList
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
-        getSupportMenuInflater().inflate(R.menu.activity_helpcenter, menu);
+        getMenuInflater().inflate(R.menu.activity_helpcenter, menu);
 
         return true;
     }

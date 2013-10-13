@@ -14,10 +14,11 @@
 
 package com.kth.baasio.helpcenter.ui;
 
-import com.kth.baasio.helpcenter.SimpleSinglePaneActivity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+
+import com.kth.baasio.helpcenter.SimpleSinglePaneActivity;
 
 /**
  * <PRE>

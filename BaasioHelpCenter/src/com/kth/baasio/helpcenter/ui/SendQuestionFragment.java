@@ -1,7 +1,27 @@
 
 package com.kth.baasio.helpcenter.ui;
 
-import com.actionbarsherlock.app.SherlockFragment;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.regex.Pattern;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.kth.baasio.Baas;
 import com.kth.baasio.callback.BaasioCallback;
 import com.kth.baasio.entity.user.BaasioUser;
@@ -16,27 +36,7 @@ import com.kth.baasio.helpcenter.ui.dialog.DialogUtils;
 import com.kth.baasio.helpcenter.utils.EtcUtils;
 import com.kth.baasio.utils.ObjectUtils;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.os.Handler;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.regex.Pattern;
-
-public class SendQuestionFragment extends SherlockFragment {
+public class SendQuestionFragment extends Fragment {
 
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 

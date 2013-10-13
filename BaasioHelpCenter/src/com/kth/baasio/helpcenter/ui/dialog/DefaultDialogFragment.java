@@ -1,15 +1,14 @@
 
 package com.kth.baasio.helpcenter.ui.dialog;
 
-import com.actionbarsherlock.app.SherlockDialogFragment;
-import com.kth.baasio.helpcenter.R;
-
+import android.support.v4.app.DialogFragment;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 
-public class DefaultDialogFragment extends SherlockDialogFragment {
+public class DefaultDialogFragment extends DialogFragment {
 
     private String mBody;
 
@@ -36,7 +35,7 @@ public class DefaultDialogFragment extends SherlockDialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        setStyle(SherlockDialogFragment.STYLE_NORMAL, R.style.Theme_Sherlock_Light_Dialog);
+        //setStyle(Fragment.STYLE_NORMAL, R.style.Theme_Sherlock_Light_Dialog);
 
         AlertDialog dialog = null;
 

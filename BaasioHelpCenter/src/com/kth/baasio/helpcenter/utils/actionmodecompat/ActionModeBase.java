@@ -16,6 +16,11 @@
 
 package com.kth.baasio.helpcenter.utils.actionmodecompat;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -23,9 +28,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,17 +37,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 /**
  * A pre-Honeycomb, simple implementation of {@link ActionMode} that simply
  * shows a context menu for the action mode.
  */
 class ActionModeBase extends ActionMode implements DialogInterface.OnClickListener {
-    private FragmentActivity mActivity;
+    private ActionBarActivity mActivity;
 
     private Callback mCallback;
 
@@ -57,12 +56,12 @@ class ActionModeBase extends ActionMode implements DialogInterface.OnClickListen
 
     private ArrayAdapter<MenuItem> mMenuItemArrayAdapter;
 
-    ActionModeBase(FragmentActivity activity, Callback callback) {
+    ActionModeBase(ActionBarActivity activity, Callback callback) {
         mActivity = activity;
         mCallback = callback;
     }
 
-    static ActionModeBase startInternal(final FragmentActivity activity, Callback callback) {
+    static ActionModeBase startInternal(final ActionBarActivity activity, Callback callback) {
         final ActionModeBase actionMode = new ActionModeBase(activity, callback);
         actionMode.startInternal();
         return actionMode;
@@ -80,7 +79,7 @@ class ActionModeBase extends ActionMode implements DialogInterface.OnClickListen
         // in a transaction. We also want to remove any currently showing
         // dialog, so make our own transaction and take care of that here.
         FragmentManager fm = mActivity.getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
+        android.support.v4.app.FragmentTransaction ft = fm.beginTransaction();
         Fragment prev = fm.findFragmentByTag("action_mode_context_menu");
         if (prev != null) {
             ft.remove(prev);
@@ -156,7 +155,7 @@ class ActionModeBase extends ActionMode implements DialogInterface.OnClickListen
         return mMenuInflater;
     }
 
-    public static void beginMultiChoiceMode(ListView listView, final FragmentActivity activity,
+    public static void beginMultiChoiceMode(ListView listView, final ActionBarActivity activity,
             final MultiChoiceModeListener listener) {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override

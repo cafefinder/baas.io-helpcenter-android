@@ -1,8 +1,29 @@
 
 package com.kth.baasio.helpcenter.ui;
 
-import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.view.MenuItem;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.kth.baasio.callback.BaasioCallback;
 import com.kth.baasio.exception.BaasioException;
 import com.kth.baasio.help.BaasioHelp;
@@ -17,27 +38,7 @@ import com.kth.baasio.helpcenter.utils.actionmodecompat.ActionMode.Callback;
 import com.kth.baasio.utils.ObjectUtils;
 import com.kth.common.utils.LogUtils;
 
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
-import android.widget.ExpandableListView.OnChildClickListener;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class FaqFragment extends SherlockFragment implements Callback, OnRefreshListener {
+public class FaqFragment extends Fragment implements Callback, OnRefreshListener {
 
     private static final String TAG = LogUtils.makeLogTag(FaqFragment.class);
 
@@ -178,14 +179,14 @@ public class FaqFragment extends SherlockFragment implements Callback, OnRefresh
     }
 
     @Override
-    public void onCreateOptionsMenu(com.actionbarsherlock.view.Menu menu,
-            com.actionbarsherlock.view.MenuInflater inflater) {
+    public void onCreateOptionsMenu(Menu menu,
+            MenuInflater inflater) {
 
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
-    public void onPrepareOptionsMenu(com.actionbarsherlock.view.Menu menu) {
+    public void onPrepareOptionsMenu(Menu menu) {
         // TODO Auto-generated method stub
         super.onPrepareOptionsMenu(menu);
     }
